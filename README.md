@@ -1,4 +1,4 @@
-# redsky2
+# redsky blog
 
 ## Project setup
 ```

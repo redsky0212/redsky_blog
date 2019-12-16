@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import MainLayout from '../views/MainLayout.vue';
+import Main from '../views/Main.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'mainLayout',
-    component: MainLayout,
+    name: 'main',
+    component: Main,
   },
   // {
   //   path: '/about',
@@ -18,6 +18,14 @@ const routes = [
   //   // which is lazy-loaded when the route is visited.
   //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   // },
+  {
+    path: '/404',
+    component: () => import('../views/NotFound.vue'),
+  },
+  {
+    path: '*',
+    redirect: '/404',  // 404로 redirect
+  },
 ];
 
 const router = new VueRouter({

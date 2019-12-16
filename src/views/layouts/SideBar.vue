@@ -492,8 +492,11 @@
 
 <script>
 import {Vue, Component} from 'vue-property-decorator';
+import { mapState } from 'vuex';
 
-@Component
+@Component({
+  computed: mapState('gnb', ['gnbLIst']),
+})
 export default class SideBar extends Vue {
 
 }

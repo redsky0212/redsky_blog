@@ -490,15 +490,19 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
+import { GnbInfo } from '../../store/modules/gnb';
 import { mapState } from 'vuex';
+import {State} from 'vuex-class';
 
 @Component({
-  computed: mapState('gnb', ['gnbLIst']),
+  computed: mapState('gnb', ['gnbList']),
 })
 export default class SideBar extends Vue {
-
+  // 데이터
+  @State((state) => state.gnb.gnbList)
+  private gnb!: GnbInfo[];
 }
 </script>
 

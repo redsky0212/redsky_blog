@@ -1,10 +1,12 @@
+export const namespaced = true;
+
 export interface GnbInfo {
-  gnbNo: number;
+  depth: number;
   name: string;
   iconNm: string;
-  sub: Object | null;
+  link: string;
+  sub: GnbInfo[] | null;
 }
-
 interface State {
   gnbList: GnbInfo[];
 }
@@ -12,10 +14,19 @@ interface State {
 export const state: State = {
   gnbList: [
     {
-      gnbNo : 0,
-      name : 'vue.js',
-      iconNm : 'fab fa-vuejs',
-      sub : true,
+      depth: 0,
+      name: 'vue.js',
+      iconNm: 'fab fa-vuejs',
+      link: '',
+      sub: [
+        {
+          depth: 1,
+          name: 'vue.js 환경설정',
+          iconNm: 'fab fa-vuejs',
+          link: '',
+          sub: null,
+        },
+      ],
     },
   ],
 };

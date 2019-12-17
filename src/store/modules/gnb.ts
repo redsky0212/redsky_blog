@@ -2,7 +2,7 @@ export interface GnbInfo {
   gnbNo: number;
   name: string;
   iconNm: string;
-  isSub: boolean;
+  sub: Object | null;
 }
 
 interface State {
@@ -15,7 +15,7 @@ export const state: State = {
       gnbNo : 0,
       name : 'vue.js',
       iconNm : 'fab fa-vuejs',
-      isSub : true,
+      sub : true,
     },
   ],
 };

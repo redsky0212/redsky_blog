@@ -10,6 +10,11 @@ const routes = [
     name: 'main',
     component: Main,
   },
+  {
+    path: '/vue/preferences',
+    name: 'vuePreferences',
+    component: () => import('../views/vue/VuePreferences.vue'),
+  },
   // {
   //   path: '/about',
   //   name: 'about',

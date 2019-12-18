@@ -1,6 +1,6 @@
 <template>
   <ul class="nav nav-list">
-    <li class="active open" v-for="gnbItem in gnb" :key="gnbItem.id">
+    <li class="" v-for="gnbItem in gnb" :key="gnbItem.id">
       <a href="#" :class="{'dropdown-toggle':gnbItem.sub}">
         <i :class="['menu-icon', gnbItem.iconNm]"></i>
         <span class="menu-text">{{gnbItem.name}}</span>
@@ -33,6 +33,7 @@ export default class LeftMenu extends Vue {
   // 데이터
   @State((state) => state.gnb.gnbList)
   private gnb!: GnbInfo[];
+
 }
 </script>
 

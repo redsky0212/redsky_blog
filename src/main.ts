@@ -9,9 +9,13 @@ import '@/assets/css/all.min.css';  // font awesome
 import '@/assets/css/ace.min.css';
 import '@/assets/css/ace-skins.min.css';
 
-import '@/assets/js/jquery-2.1.4.min.js';
+import '@/assets/js/bootstrap.min.js';
+import '@/assets/js/ace-elements.min.js';
+import '@/assets/js/ace.min.js';
 
 Vue.config.productionTip = false;
+
+
 
 new Vue({
   router,

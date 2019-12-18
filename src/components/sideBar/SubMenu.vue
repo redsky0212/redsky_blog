@@ -1,10 +1,11 @@
 <template>
-  <ul class="submenu nav-show" style="display:block;">
-    <li class="active" v-for="item in subData" :key="item.id">
-      <a href="form-elements.html">
+  <ul class="submenu">
+    <li class="" v-for="item in subData" :key="item.id">
+      
+      <router-link :to="item.link">
         <i class="menu-icon fas fa-caret-right"></i>
         {{item.name}}
-      </a>
+      </router-link>
 
       <b class="arrow"></b>
     </li>
@@ -18,6 +19,8 @@ import { GnbInfo } from '../../store/modules/gnb';
 @Component
 export default class LeftMenu extends Vue {
   @Prop() private subData!: GnbInfo[];
+
+  
 }
 </script>
 

@@ -26,7 +26,7 @@ export const state: State = {
           id: '0_0',
           name: 'vue.js 환경설정',
           iconNm: 'fab fa-vuejs',
-          link: '',
+          link: '/vue/preferences',
           sub: null,
         },
       ],

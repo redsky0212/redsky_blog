@@ -2,18 +2,7 @@
   <div id="sidebar" class="sidebar                  responsive                    ace-save-state sidebar-fixed">
     
 
-    <div class="sidebar-shortcuts" id="sidebar-shortcuts" style="padding:3px;">
-
-      <div class="input-group">
-        <input type="text" class="form-control search-query" placeholder="Search..." />
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-purple btn-sm">
-            <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-          </button>
-        </span>
-      </div>
-
-    </div><!-- /.sidebar-shortcuts -->
+    
 
     <left-menu /><!-- /.nav-list -->
 

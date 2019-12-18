@@ -12,12 +12,12 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<router-link to="/" class="navbar-brand">
 						<small>
 							<i class="fab fa-skype"></i>
 							REDSKY
 						</small>
-					</a>
+					</router-link>
 				</div>
 
 				<div class="navbar-buttons navbar-header pull-right" role="navigation">

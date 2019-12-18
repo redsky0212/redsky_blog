@@ -26,8 +26,26 @@ export const state: State = {
           id: '0_0',
           name: 'vue.js 환경설정',
           iconNm: 'fab fa-vuejs',
-          link: '/vue/preferences',
-          sub: null,
+          link: '',
+          sub: [
+            {
+              depth: 2,
+              id: '0_0_0',
+              name: 'vue CLI 3',
+              iconNm: 'fab fa-vuejs',
+              link: '/vue/preferences',
+              sub: [
+                {
+                  depth: 3,
+                  id: '0_0_0_0',
+                  name: 'vue aaa',
+                  iconNm: 'fab fa-vuejs',
+                  link: '/vue/preferences/aa',
+                  sub: null,
+                },
+              ],
+            },
+          ],
         },
       ],
     },

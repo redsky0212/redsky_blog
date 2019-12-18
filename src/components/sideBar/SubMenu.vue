@@ -1,6 +1,6 @@
 <template>
   <ul class="submenu">
-    <li class="" v-for="item in subData" :key="item.id">
+    <li class="open" v-for="item in subData" :key="item.id">
       
       <router-link :to="item.link">
         <i class="menu-icon fas fa-caret-right"></i>
@@ -8,6 +8,8 @@
       </router-link>
 
       <b class="arrow"></b>
+
+      <sub-menu v-if="item.sub" :sub-data="item.sub" />
     </li>
   </ul>
 </template>
@@ -17,10 +19,8 @@ import {Vue, Component, Prop} from 'vue-property-decorator';
 import { GnbInfo } from '../../store/modules/gnb';
 
 @Component
-export default class LeftMenu extends Vue {
+export default class SubMenu extends Vue {
   @Prop() private subData!: GnbInfo[];
-
-  
 }
 </script>
 

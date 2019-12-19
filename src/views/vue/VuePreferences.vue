@@ -77,7 +77,8 @@
             <hr />
             <h3>vue cli 란?</h3>
             <p>
-              Vue CLI 는 커맨드라인 인터페이스 기반의 Vue 프로젝트 생성 도구입니다. Vue 애플리케이션을 개발할 때 기본적인 폴더 구조, 라이브러리 등을 설정해줍니다.
+              Vue CLI 는 커맨드라인 인터페이스 기반의 Vue 프로젝트 생성 도구입니다. Vue 애플리케이션을 개발할 때 기본적인 폴더 구조, 라이브러리 등을 설정해줍니다.<br />
+              <a href="https://cli.vuejs.org/guide/" target="_blank">링크 : Vue CLI 공식문서</a>
             </p>
             <div class="widget-box">
               <div class="widget-header widget-header-flat">

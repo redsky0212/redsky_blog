@@ -11,23 +11,38 @@
     </div><!-- /.page-header -->
 
     <div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div class="alert alert-block alert-success">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
+      <div class="col-xs-12">
+        
+        <!-- PAGE CONTENT BEGINS -->
+				<div class="row">
+          <div class="col-xs-12">
+            <h4>Vue.js 개발을 위한 기본 셋팅</h4>
+            <hr />
+            <div class="widget-box">
+              <div class="widget-header widget-header-flat">
+                <h4 class="smaller">
+                  기본 개발 환경 설정
+                </h4>
+              </div>
 
-									<i class="ace-icon fa fa-check green"></i>
+              <div class="widget-body">
+                <div class="widget-main">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <ul>
+                        <li>
+                          node.js설치
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-									Welcome to
-									<strong class="green">
-										Ace
-										<small>(v1.4)</small>
-									</strong>,
-	лёгкий, многофункциональный и простой в использовании шаблон для админки на bootstrap 3.3.6. Загрузить исходники с <a href="https://github.com/bopoda/ace">github</a> (with minified ace js/css files).
-								</div>
-							</div>
+      </div>
     </div>
 
   </div>

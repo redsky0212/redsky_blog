@@ -1,11 +1,16 @@
 <template>
   <ul class="nav nav-list">
-    <li class="" v-for="gnbItem in gnb" :key="gnbItem.id">
-      <a href="#" :class="{'dropdown-toggle':gnbItem.sub}">
+    <li class="" v-for="gnbItem in gnbList" :key="gnbItem.id">
+      <a v-if="gnbItem.link===''" href="#" :class="{'dropdown-toggle':gnbItem.sub}">
         <i :class="['menu-icon', gnbItem.iconNm]"></i>
         <span class="menu-text">{{gnbItem.name}}</span>
         <b :class="{'arrow fa fa-angle-down':gnbItem.sub}"></b>
       </a>
+      <router-link v-else :to="gnbItem.link" :class="{'dropdown-toggle':gnbItem.sub}">
+        <i :class="['menu-icon', gnbItem.iconNm]"></i>
+        <span class="menu-text">{{gnbItem.name}}</span>
+        <b :class="{'arrow fa fa-angle-down':gnbItem.sub}"></b>
+      </router-link>
 
       <b class="arrow"></b>
 
@@ -30,10 +35,12 @@ import SubMenu from '@/components/sideBar/SubMenu.vue';
   computed: mapState('gnb', ['gnbList']),
 })
 export default class LeftMenu extends Vue {
-  // 데이터
-  @State((state) => state.gnb.gnbList)
-  private gnb!: GnbInfo[];
+  // ts내에서 쓰기위한 data 선언
+  gnbList!: GnbInfo[];
 
+  private mounted(){
+    console.log(this.gnbList);
+  }
 }
 </script>
 

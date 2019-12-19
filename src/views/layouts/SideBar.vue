@@ -17,6 +17,7 @@ import {Vue, Component} from 'vue-property-decorator';
 
 import LeftMenu from '@/components/sideBar/LeftMenu.vue';
 
+
 @Component({
   components: {
     LeftMenu,

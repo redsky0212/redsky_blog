@@ -19,7 +19,7 @@ export const state: State = {
       id: '0',
       name: 'vue.js',
       iconNm: 'fab fa-vuejs',
-      link: '',
+      link: '/vue/preferences',
       sub: [
         {
           depth: 1,

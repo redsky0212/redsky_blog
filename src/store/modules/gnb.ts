@@ -47,6 +47,14 @@ export const state: State = {
             },
           ],
         },
+        {
+          depth: 1,
+          id: '0_1',
+          name: 'vue.js 잡다구리',
+          iconNm: 'fab fa-vuejs',
+          link: '/vue/etc',
+          sub: null
+        },
       ],
     },
     {
@@ -63,6 +71,14 @@ export const state: State = {
       name: 'javascript',
       iconNm: 'fab fa-js',
       link: '',
+      sub: null,
+    },
+    {
+      depth: 0,
+      id: '3',
+      name: 'TestComp',
+      iconNm: 'fab fa-js',
+      link: '/test',
       sub: null,
     },
   ],

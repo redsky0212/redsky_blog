@@ -11,18 +11,25 @@ const routes = [
     component: Main,
   },
   {
+    path: '/vue',
+    name: 'vueMain',
+    component: () => import('../views/vue/VueMain.vue'),
+  },
+  {
     path: '/vue/preferences',
     name: 'vuePreferences',
     component: () => import('../views/vue/VuePreferences.vue'),
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  // },
+  {
+    path: '/vue/etc',
+    name: 'vueEtc',
+    component: () => import('../views/vue/VueEtc.vue'),
+  },
+  {
+    path: '/test',
+    name: 'TestComp',
+    component: () => import('../views/TestComp.vue'),
+  },
   {
     path: '/404',
     component: () => import('../views/NotFound.vue'),

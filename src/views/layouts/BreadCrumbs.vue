@@ -1,15 +1,13 @@
 <template>
   <div class="breadcrumbs ace-save-state breadcrumbs-fixed" id="breadcrumbs">
     <ul class="breadcrumb">
-      <li>
-        <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Home</a>
+
+      <li v-for="(item, index) in crumbs" :key="index" :class="{active: index+1 === crumbs.length}">
+        <i v-if="index===0" class="ace-icon fa fa-home home-icon"></i>
+        <template v-if="index+1 === crumbs.length">{{item.text}}</template>
+        <router-link v-else :to="item.to">{{item.text}}</router-link>
       </li>
 
-      <li>
-        <a href="#">Forms</a>
-      </li>
-      <li class="active">Form Elements</li>
     </ul><!-- /.breadcrumb -->
 
     <div class="nav-search" id="nav-search">
@@ -26,9 +24,30 @@
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 
-@Component
-export default class BreadCrumbs extends Vue {
+@Component({
+  computed: {
+    crumbs() {
+      console.log('call' + this.$route.path);
+      const pathArray = this.$route.path.split('/');
+      pathArray.shift();
 
+      const breadcrumbs = pathArray.reduce((breadcrumbArray: any, path, idx) => {
+        breadcrumbArray.push({
+          path: path,
+          to: breadcrumbArray[idx - 1]
+            ? ('/' + breadcrumbArray[idx - 1].path + '/' + path)
+            : ('/' + path),
+          text: path,
+        });
+        return breadcrumbArray;
+      }, [
+        {path: '/', to: '/', text: 'Home'},
+      ]);
+      return breadcrumbs;
+    },
+  },
+})
+export default class BreadCrumbs extends Vue {
 }
 </script>
 

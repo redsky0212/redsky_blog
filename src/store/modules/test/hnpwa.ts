@@ -31,3 +31,30 @@ const module: Module<hnpwa, RootState> = {
 export default module;
 
 // vuex-module-decorators를 이용하여 class방식으로 store 만들기
+// import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
+// import { FeedItem } from '@/store/types';
+// import { AxiosResponse } from 'axios';
+// import AxiosService from '@/service/axios.service';
+
+// @Module({
+//   namespaced: true,
+//   name:'hnpwa',
+// })
+// export default class hnpwa extends VuexModule {
+//   // state ---------------------------------
+//   newsData!: FeedItem[];
+
+//   // mutations --------------------------
+//   @Mutation
+//   newsList(data:FeedItem[]):void{
+//     this.newsData = data;
+//   }
+
+//   // action ------------------------------
+//   @Action({commit:'newsList'})
+//   async function getNews():FeedItem[]{
+   
+//     const newsData_action:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
+//     return newsData_action.data;
+//   }
+// }

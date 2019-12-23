@@ -1,11 +1,16 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
-import * as gnb from '@/store/modules/gnb.ts';
+import Vuex, { StoreOptions } from 'vuex';
+import { RootState } from './types';
+import gnb from '@/store/modules/gnb.ts';
+import hnpwa from '@/store/modules/test/hnpwa.ts';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+
+
+const store: StoreOptions<RootState> = {
   state: {
+    data: 'root',
   },
   mutations: {
   },
@@ -13,5 +18,8 @@ export default new Vuex.Store({
   },
   modules: {
     gnb,
+    hnpwa,
   },
-});
+};
+
+export default new Vuex.Store(store);

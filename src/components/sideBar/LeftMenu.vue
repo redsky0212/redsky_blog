@@ -1,6 +1,6 @@
 <template>
   <ul class="nav nav-list">
-    <li class="" v-for="gnbItem in gnbList" :key="gnbItem.id">
+    <li class="" v-for="gnbItem in getGnbList" :key="gnbItem.id">
       <a v-if="gnbItem.link===''" href="#" :class="{'dropdown-toggle':gnbItem.sub}">
         <i :class="['menu-icon', gnbItem.iconNm]"></i>
         <span class="menu-text">{{gnbItem.name}}</span>
@@ -23,23 +23,27 @@
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 import {mapState} from 'vuex';
-import { GnbInfo } from '../../store/modules/gnb';
-import {State} from 'vuex-class';
+import { GnbInfo } from '../../store/types';
+import {State, Getter, namespace} from 'vuex-class';
 
 import SubMenu from '@/components/sideBar/SubMenu.vue';
+
+const gnb = namespace('gnb');
 
 @Component({
   components: {
     SubMenu,
   },
-  computed: mapState('gnb', ['gnbList']),
 })
 export default class LeftMenu extends Vue {
   // ts내에서 쓰기위한 data 선언
-  gnbList!: GnbInfo[];
+  @gnb.Getter readonly getGnbList!: GnbInfo[];
+  @gnb.State readonly gnbList!: GnbInfo[];
+
+  private gnbData: GnbInfo[] = this.$store.state.gnb.gnbList;
 
   private mounted(){
-    console.log(this.gnbList);
+    console.log(this.getGnbList);
   }
 }
 </script>

@@ -21,6 +21,16 @@ const routes = [
     component: () => import('../views/vue/VuePreferences.vue'),
   },
   {
+    path: '/vue/vuex/typescript/makeStore',
+    name: 'ts-makeStore',
+    component: () => import('../views/vue/vuex/typescript/ts-makeStore.vue'),
+  },
+  {
+    path: '/vue/vuex/typescript/moduleStore',
+    name: 'ts-moduleStore',
+    component: () => import('../views/vue/vuex/typescript/ts-moduleStore.vue'),
+  },
+  {
     path: '/vue/etc',
     name: 'vueEtc',
     component: () => import('../views/vue/VueEtc.vue'),

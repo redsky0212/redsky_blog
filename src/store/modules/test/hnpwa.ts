@@ -14,13 +14,13 @@ const module: Module<hnpwa, RootState> = {
     newsData: null,
   },
   mutations: {
-    newsList(state, data: FeedItem[]){
+    newsList(state, data: FeedItem[]):void{
       state.newsData = data;
     }
   },
   actions: {
     async getNews({commit}){
-      const newsData:AxiosResponse<{data:FeedItem[]}> = await AxiosService.instance.get('/news/1.json');
+      const newsData:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
       commit('newsList', newsData.data);
     },
   },

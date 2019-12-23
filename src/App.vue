@@ -9,7 +9,6 @@
           <div class="page-content">
             <router-view/>
           </div>
-          <test-comp />
         </div>
       </div>
       <footer-bar />
@@ -24,15 +23,12 @@ import SideBar from '@/views/layouts/SideBar.vue';
 import BreadCrumbs from '@/views/layouts/BreadCrumbs.vue';
 import FooterBar from '@/views/layouts/FooterBar.vue';
 
-import TestComp from '@/views/TestComp.vue';
-
 @Component({
   components: {
     HeaderBar,
     SideBar,
     BreadCrumbs,
     FooterBar,
-    TestComp,
   },
 })
 export default class App extends Vue {

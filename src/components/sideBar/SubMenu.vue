@@ -19,7 +19,7 @@ import {Vue, Component, Prop} from 'vue-property-decorator';
 import { GnbInfo } from '../../store/types';
 
 
-@Component
+@Component({name:'sub-menu'})
 export default class SubMenu extends Vue {
   @Prop() private subData!: GnbInfo[];
 }

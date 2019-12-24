@@ -273,32 +273,7 @@ export default class gnb extends VuexModule {
   }
 }</pre>
                         </li>
-                        <li>
-                          <b>types.ts</b>
-                          <ul class="list-unstyled">
-                            <li>
-                              <i class="ace-icon fa fa-caret-right blue"></i>
-                              computed에서 사용하고 있는 데이터가 업데이트 되는 시점에 해당 computed가 호출 된다.
-                            </li>
-                            <li>
-                              <i class="ace-icon fa fa-caret-right blue"></i>
-                              <a href="https://mygumi.tistory.com/311" target="_blank">computed관련 참조할만한 링크 : https://mygumi.tistory.com/311</a>
-                            </li>
-                            <li>
-                              <i class="ace-icon fa fa-caret-right blue"></i>
-                              typescript에서 computed선언은 class내부의 아래와 같은 형식으로 선언 할 수 있다.<br />
-                              class내부에 computed를 선언하지 않고 상단 @Component({ computed:{} }) 에 선언하면 this를 찾을 수가 없어서 구현하기 힘들어 진다.
-                              <pre class="prettyprint linenums">import {Vue, Component, Prop} from 'vue-property-decorator';
-@Component
-export default class App extends Vue {
-  // computed
-  get computedMsg () {
-    return 'computed ' + this.msg
-  }
-}</pre>
-                            </li>
-                          </ul>
-                        </li>
+                        
                         
                       </ul>
                     </div>

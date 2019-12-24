@@ -35,6 +35,12 @@
                       <ul>
                         <li>
                           <b>SFC(싱글파일컴포넌트)를 만들고 재귀 호출 하고자 할때 바로 호출하면 됨.</b>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              단 name을 꼭 지정해 줘야 나중에  npm run build 하고나서 제대로 하위까지 재귀가 잘 호출됨. ex) @Component({name:'sub-menu'})
+                            </li>
+                          </ul>
                           <pre class="prettyprint linenums">&lt;template&gt;
   &lt;!-- 자기 자신을 호출 --&gt;    
   &lt;sub-menu v-if="item.sub" :sub-data="item.sub" /&gt;
@@ -44,7 +50,7 @@
 import {Vue, Component, Prop} from 'vue-property-decorator';
 import { GnbInfo } from '../../store/modules/gnb';
 
-@Component
+@Component({name:'sub-menu'})
 export default class SubMenu extends Vue {
   @Prop() private subData!: GnbInfo[];
 }

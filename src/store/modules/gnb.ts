@@ -104,6 +104,23 @@ export default class gnb extends VuexModule {
     {
       depth: 0,
       id: '3',
+      name: 'TypeScript',
+      iconNm: 'fab fa-js',
+      link: '',
+      sub: [
+        {
+          depth: 1,
+          id: '3_0',
+          name: 'TypeScript 링크모음',
+          iconNm: 'fab fa-js',
+          link: '/typescript/studyLink',
+          sub: null,
+        },
+      ],
+    },
+    {
+      depth: 0,
+      id: '4',
       name: 'TestComp',
       iconNm: 'fab fa-js',
       link: '/test',

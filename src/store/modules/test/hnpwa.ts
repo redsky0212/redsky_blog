@@ -31,9 +31,9 @@ const module: Module<hnpwa, RootState> = {
 export default module;
 
 // vuex-module-decorators를 이용하여 class방식으로 store 만들기
-// import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
+// import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-decorators';
 // import { FeedItem } from '@/store/types';
-// import { AxiosResponse } from 'axios';
+// import Axios, { AxiosResponse, AxiosError } from 'axios';
 // import AxiosService from '@/service/axios.service';
 
 // @Module({
@@ -51,10 +51,17 @@ export default module;
 //   }
 
 //   // action ------------------------------
-//   @Action({commit:'newsList'})
-//   async function getNews():FeedItem[]{
+//   @Action
+//   getNews(){
    
-//     const newsData_action:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
-//     return newsData_action.data;
+//     // const newsData_action:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
+//     AxiosService.instance.get('/news/1.json')
+//     .then((response:AxiosResponse<FeedItem[]>)=>{
+//       this.context.commit('newsList', response.data);
+//     })
+//     .catch((error:AxiosError)=>{
+//       console.error(error);
+//     });
+    
 //   }
 // }

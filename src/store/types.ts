@@ -26,3 +26,7 @@ export interface FeedItem {
   url?: string;
   domain?: string;
 }
+export interface hackerNewsState {
+  newsData: FeedItem[] | null;
+  askData: FeedItem[] | null;
+}

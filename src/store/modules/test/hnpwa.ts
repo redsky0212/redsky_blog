@@ -23,6 +23,10 @@ const module: Module<hnpwa, RootState> = {
       const newsData:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
       commit('newsList', newsData.data);
     },
+    async getNewsPaging({commit}){
+      const newsData:AxiosResponse<FeedItem[]> = await AxiosService.instance.post('/news.json/1.json');
+      commit('newsList', newsData.data);
+    }
   },
   getters: {
   },

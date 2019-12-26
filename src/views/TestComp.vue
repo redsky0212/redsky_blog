@@ -2,27 +2,35 @@
   <div>
     <div>{{testComputed}}</div>
     <button @click="add">add count</button>
-    <button @click="getNews">get news</button>
+    <button @click="fetchNews">get news</button>
     <ul>
-      <li v-for="item in newsData" :key="item.id">{{item.title}}</li>
+      <li v-for="item in getNewsData" :key="item.id">{{item.title}}</li>
+    </ul>
+    <ul>
+      <li v-for="item in askData" :key="item.id">{{item.title}}</li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
-import { State, namespace, Action } from 'vuex-class';
+import { State, namespace, Action, Getter } from 'vuex-class';
 import { FeedItem } from '../store/types';
 
-const hnpwa = namespace('hnpwa');
+const hackerNews = namespace('hackerNews');
 
 @Component
 export default class TestComp extends Vue {
   public count:number = 0;
-  public newsList:any = this.$store.state.hnpwa.newsData;
-  @hnpwa.State readonly newsData!: FeedItem[]; 
+  public newsList:any = this.$store.state.hackerNews.newsData;
+  
+  //@hackerNews.State readonly newsData!: FeedItem[]; 
+  @hackerNews.State newsData!: FeedItem[];
+  @hackerNews.State askData!: FeedItem[];
+  @hackerNews.Getter getNewsData!: FeedItem[];
 
-  @hnpwa.Action readonly getNews: any;
+  @hackerNews.Action readonly fetchNews: any;
+  @hackerNews.Action readonly fetchAsk: any;
 
   // computed
   get testComputed(){
@@ -33,7 +41,8 @@ export default class TestComp extends Vue {
 
   created(){
     //this.$store.dispatch('hnpwa/getNews');
-    this.getNews();
+    this.fetchNews();
+    this.fetchAsk();
   }
 
   // method

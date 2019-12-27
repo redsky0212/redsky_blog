@@ -8,7 +8,7 @@
 * ( vue ui ) 실행하여 브라우져에서 상태를 ui로 볼 수 있다.
 * Vue CLI를 통하여 plugin을 설치하기 위해 vue add 명령어를 사용할 수 있다.
   - 또는 Vue 프로젝트 메니져 에서도 추가 할 수있다.
-  - Vue CLI 3 Plugin에 대해서는 참조: https://cli.vuejs.org/guide/plugins-and-presets.html#plugins
+  - Vue CLI 3 Plugin에 대해서는 [여기 참조](https://cli.vuejs.org/guide/plugins-and-presets.html#plugins)
 ## 작업순서
 ### Header
 ### SideBar.vue

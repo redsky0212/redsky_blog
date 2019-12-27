@@ -11,5 +11,9 @@ export const actions: ActionTree<hackerNewsState, RootState> = {
   async fetchAsk({commit}){
     const askData:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/ask/1.json');
     commit('askList', askData.data);
+  },
+  async getDetailItem({commit}, payload){
+    const itemData:AxiosResponse<FeedItem[]> = await AxiosService.instance.get(`/item/${payload.id}.json`);
+    commit('getItemData', itemData.data);
   }
 }

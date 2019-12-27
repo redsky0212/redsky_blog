@@ -16,7 +16,7 @@
 				<div class="row">
           <div class="col-xs-12">
 
-            <h3>Vue 작업중 정리할것들</h3>
+            <h3>Vue 작업중 정리할것들(우선정리, 나중에 따로 정리할 필요 있음.)</h3>
             <p>
               Vue, Typescript 를 이용하여 작업중에 멍청하게 몰랐던 부분들, 오랫동안 고민한것들을 기억하기 위한 용도로 정리 한다.
             </p>
@@ -77,6 +77,119 @@ export default class App extends Vue {
   // computed
   get computedMsg () {
     return 'computed ' + this.msg
+  }
+}</pre>
+                            </li>
+                          </ul>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="widget-box">
+              <div class="widget-header widget-header-flat">
+                <h4 class="smaller">
+                  2019.12.27
+                </h4>
+              </div>
+
+              <div class="widget-body">
+                <div class="widget-main">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <ul>
+                        <li>
+                          <b>vue 네비게이션가드(전역가드, 라우터가드, 컴포넌트 내부 가드)</b>
+                          <a href="https://router.vuejs.org/kr/guide/advanced/navigation-guards.html" target="_blank">네비게이션가드 공식문서 링크</a>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              (전역가드)router.beforeEach 를 사용하여 보호하기 이전에 전역 등록을 할 수 있습니다.
+                            </li>
+                          </ul>
+                          <pre class="prettyprint linenums">const router = new VueRouter({ ... })
+
+router.beforeEach((to, from, next) => {
+  // ...
+})</pre>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              (라우터가드) beforeEnter 가드를 라우트의 설정 객체에 직접 정의 할 수 있습니다.
+                            </li>
+                          </ul>
+                          <pre class="prettyprint linenums">const router = new VueRouter({
+  routes: [
+    {
+      path: '/foo',
+      component: Foo,
+      beforeEnter: (to, from, next) => {
+        // ...
+      }
+    }
+  ]
+})</pre>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              (컴포넌트내부가드) beforeRouteEnter 와 beforeRouteLeave, beforeRouteUpdate 를 사용하여 라우트에 설정된 컴포넌트 안에 네비게이션가드를 직접 정의 할 수 있습니다.
+                            </li>
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              beforeRouteEnter에서는 컴포넌트 인스턴스가 아직 생성되지 않았기때문에 this에 접근하지 못합니다.
+                            </li>
+                          </ul>
+                          <pre class="prettyprint linenums">const Foo = {
+  template: `...`,
+  beforeRouteEnter (to, from, next) {
+    // 이 컴포넌트를 렌더링하는 라우트 앞에 호출됩니다.
+    // 이 가드가 호출 될 때 아직 생성되지 않았기 때문에
+    // `this` 컴포넌트 인스턴스에 접근 할 수 없습니다!
+  },
+  beforeRouteLeave (to, from, next) {
+    // 이 컴포넌트를 렌더링하는 라우트가 이전으로 네비게이션 될 때 호출됩니다.
+    // `this` 컴포넌트 인스턴스에 접근 할 수 있습니다.
+  }
+}</pre>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              (컴포넌트내부가드) 그러나 콜백을 next에 전달하여 인스턴스에 액세스 할 수 있습니다. 네비게이션이 확인되고 컴포넌트 인스턴스가 콜백에 전달인자로 전달 될 때 콜백이 호출됩니다.
+                            </li>
+                          </ul>
+                          <pre class="prettyprint linenums">beforeRouteEnter (to, from, next) {
+  next(vm => {
+    // `vm`을 통한 컴포넌트 인스턴스 접근
+  })
+}</pre>
+                        </li>
+                        <li>
+                          <b>TypeScript에서 컴포넌트 내부 가드 사용</b>
+                          <ul class="list-unstyled">
+                            <li>
+                              <i class="ace-icon fa fa-caret-right blue"></i>
+                              class방식 내부에서 바로 beforeRouteEnter가 호출되지 않으므로 아래 방법으로 적용한다.
+                              <pre class="prettyprint linenums">import {Vue, Component} from 'vue-property-decorator';
+import VueRouter, {Route} from 'vue-router';
+
+// root ts파일이나 컴포넌트 상단에 코딩
+Component.registerHooks([
+    'beforeRouteEnter',
+    'beforeRouteLeave',
+    'beforeRouteUpdate',
+]);
+
+@Component
+export default class TestCompComment extends Vue {
+  // class내부에서 사용
+  beforeRouteEnter(to:Route, from:Route, next:any){
+    const id = to.query.id as string;
+    console.log(id);
+    next({id:id});
   }
 }</pre>
                             </li>

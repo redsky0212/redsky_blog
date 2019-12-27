@@ -1,5 +1,5 @@
 import { MutationTree } from 'vuex';
-import {hackerNewsState, FeedItem} from '@/store/types';
+import {hackerNewsState, FeedItem, detailItem} from '@/store/types';
 
 export const mutations: MutationTree<hackerNewsState> = {
   newsList(state, payload: FeedItem[] | null){
@@ -7,5 +7,8 @@ export const mutations: MutationTree<hackerNewsState> = {
   },
   askList(state, payload: FeedItem[] | null){
     state.askData = payload;
+  },
+  getItemData(state, payload: detailItem){
+    state.itemData = payload;
   },
 };

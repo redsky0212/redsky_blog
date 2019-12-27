@@ -10,6 +10,7 @@ const namespaced: boolean = true;
 export const state: hackerNewsState = {
   newsData: null,
   askData: null,
+  itemData: null,
 };
 
 export const hackerNews: Module<hackerNewsState, RootState> = {

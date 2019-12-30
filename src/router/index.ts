@@ -46,6 +46,11 @@ const routes = [
     component: () => import('../views/TestComp.vue'),
   },
   {
+    path: '/test/comment',
+    name: 'TestCompComment',
+    component: () => import('../views/TestCompComment.vue'),
+  },
+  {
     path: '/404',
     component: () => import('../views/NotFound.vue'),
   },

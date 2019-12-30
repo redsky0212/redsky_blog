@@ -34,6 +34,12 @@
                         <li>
                           <b><a href="https://www.youtube.com/watch?v=fgIHrsgvBH4&list=PLV6pYUAZ-ZoEBNDzOxzToMqv-V1QGlU0T" target="_blank">타입스크립트 코리아: 2017.05 기초 세미나 - Youtube</a></b>
                         </li>
+                        <li>
+                          <b><a href="https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md" target="_blank">hacker news api 링크</a></b>
+                        </li>
+                        <li>
+                          <b><a href="https://honeystorage.tistory.com/36" target="_blank">cafe24에 node서버 구성하기</a></b>
+                        </li>
                       </ul>
                     </div>
                   </div>

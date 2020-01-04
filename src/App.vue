@@ -18,10 +18,10 @@
 
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
-import HeaderBar from '@/views/layouts/HeaderBar.vue';
-import SideBar from '@/views/layouts/SideBar.vue';
-import BreadCrumbs from '@/views/layouts/BreadCrumbs.vue';
-import FooterBar from '@/views/layouts/FooterBar.vue';
+import HeaderBar from './views/layouts/HeaderBar.vue';
+import SideBar from './views/layouts/SideBar.vue';
+import BreadCrumbs from './views/layouts/BreadCrumbs.vue';
+import FooterBar from './views/layouts/FooterBar.vue';
 
 @Component({
   components: {

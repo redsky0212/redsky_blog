@@ -44,20 +44,37 @@ export default class gnb extends VuexModule {
         {
           depth: 1,
           id: '0_1',
-          name: 'Vuex',
+          name: 'Vue 이해하기',
           iconNm: 'fab fa-vuejs',
           link: '',
           sub: [
             {
               depth: 2,
               id: '0_1_0',
+              name: 'Slot',
+              iconNm: 'fab fa-vuejs',
+              link: '/vue/understand/slot',
+              sub: null,
+            }
+          ]
+        },
+        {
+          depth: 1,
+          id: '0_2',
+          name: 'Vuex',
+          iconNm: 'fab fa-vuejs',
+          link: '',
+          sub: [
+            {
+              depth: 2,
+              id: '0_2_0',
               name: 'Vuex + Typescript',
               iconNm: 'fab fa-vuejs',
               link: '',
               sub: [
                 {
                   depth: 3,
-                  id: '0_1_0_0',
+                  id: '0_2_0_0',
                   name: 'store만들기',
                   iconNm: 'fab fa-vuejs',
                   link: '/vue/vuex/typescript/makeStore',
@@ -65,7 +82,7 @@ export default class gnb extends VuexModule {
                 },
                 {
                   depth: 3,
-                  id: '0_1_0_1',
+                  id: '0_2_0_1',
                   name: 'modules,store분리',
                   iconNm: 'fab fa-vuejs',
                   link: '/vue/vuex/typescript/moduleStore',
@@ -77,7 +94,7 @@ export default class gnb extends VuexModule {
         },
         {
           depth: 1,
-          id: '0_2',
+          id: '0_3',
           name: 'vue.js 잡다구리',
           iconNm: 'fab fa-vuejs',
           link: '/vue/etc',

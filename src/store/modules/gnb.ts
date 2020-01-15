@@ -55,6 +55,14 @@ export default class gnb extends VuexModule {
               iconNm: 'fab fa-vuejs',
               link: '/vue/understand/slot',
               sub: null,
+            },
+            {
+              depth: 2,
+              id: '0_1_2',
+              name: 'vmodel',
+              iconNm: 'fab fa-vuejs',
+              link: '/vue/understand/component/vmodel',
+              sub: null,
             }
           ]
         },

@@ -26,6 +26,11 @@ const routes = [
     component: () => import('../views/vue/understand/slot/Slot1.vue'),
   },
   {
+    path: '/vue/understand/component/vmodel',
+    name: 'componentVModel',
+    component: () => import('../views/vue/understand/component/UseVmodel.vue'),
+  },
+  {
     path: '/vue/vuex/typescript/makeStore',
     name: 'ts-makeStore',
     component: () => import('../views/vue/vuex/typescript/ts-makeStore.vue'),

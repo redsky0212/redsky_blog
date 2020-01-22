@@ -291,14 +291,14 @@ export default class gnb extends VuexModule {
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 
 @Component
 export default class VueEtc extends Vue {
 
-  mounted() {
-    window.prettyPrint && prettyPrint();
+  private mounted() {
+    window.prettyPrint();
   }
 }
 </script>

@@ -56,14 +56,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 
 @Component
 export default class StudyLink extends Vue {
 
-  mounted() {
-    window.prettyPrint && prettyPrint();
+  private mounted() {
+    window.prettyPrint();
   }
 }
 </script>

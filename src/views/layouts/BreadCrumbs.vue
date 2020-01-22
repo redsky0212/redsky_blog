@@ -27,13 +27,13 @@ import {Vue, Component} from 'vue-property-decorator';
 @Component({
   computed: {
     crumbs() {
-      console.log('call' + this.$route.path);
+      window.console.log('call' + this.$route.path);
       const pathArray = this.$route.path.split('/');
       pathArray.shift();
 
       const breadcrumbs = pathArray.reduce((breadcrumbArray: any, path, idx) => {
         breadcrumbArray.push({
-          path: path,
+          path,
           to: breadcrumbArray[idx - 1]
             ? ('/' + breadcrumbArray[idx - 1].path + '/' + path)
             : ('/' + path),

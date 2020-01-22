@@ -75,43 +75,37 @@ const hackerNews = namespace('hackerNews');
 
 @Component
 export default class TestComp extends Vue {
-  public count:number = 0;
-  public newsList:any = this.$store.state.hackerNews.newsData;
-  public timeTest!:string;
+  public count: number = 0;
+  public newsList: any = this.$store.state.hackerNews.newsData;
+  public timeTest!: string;
   private mom = moment;
-  
-  //@hackerNews.State readonly newsData!: FeedItem[]; 
-  @hackerNews.State newsData!: FeedItem[];
-  @hackerNews.State askData!: FeedItem[];
-  @hackerNews.Getter getNewsData!: FeedItem[];
+  // @hackerNews.State readonly newsData!: FeedItem[];
+  @hackerNews.State private newsData!: FeedItem[];
+  @hackerNews.State private askData!: FeedItem[];
+  @hackerNews.Getter private getNewsData!: FeedItem[];
 
-  @hackerNews.Action readonly fetchNews: any;
-  @hackerNews.Action readonly fetchAsk: any;
+  @hackerNews.Action private readonly fetchNews: any;
+  @hackerNews.Action private readonly fetchAsk: any;
 
   // computed
-  get testComputed(){
-    console.log('call Test!!!');
-    
+  get testComputed() {
+    window.console.log('call Test!!!');
     return this.count;
   }
 
-  created(){
-    //this.$store.dispatch('hnpwa/getNews');
+  private created() {
+    // this.$store.dispatch('hnpwa/getNews');
     this.fetchNews();
     this.fetchAsk();
 
     this.timeTest = moment.unix(1577403775).fromNow();
   }
 
-  mounted(){
-    
-  }
-
   // method
-  private add(){
+  private add() {
     this.count++;
   }
-  private time_ago( time:number ):string{
+  private time_ago( time: number ): string {
     return moment.unix(time).fromNow();
   }
 }

@@ -17,6 +17,12 @@ import '@/assets/js/prettify.min.js';
 
 Vue.config.productionTip = false;
 
+declare global {
+  interface Window {
+    prettyPrint: any;
+  }
+}
+
 
 
 new Vue({

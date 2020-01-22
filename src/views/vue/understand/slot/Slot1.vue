@@ -258,19 +258,18 @@ export default {
   </div>
 </template>
 
-<script >
+<script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class Slot1 extends Vue {
-  a = {};
+  private a = {};
 
+  private mounted() {
+      window.prettyPrint();
+      this.$set(this.a, 'b', 1);
 
-    mounted() {
-        window.prettyPrint && prettyPrint();
-        this.$set(this.a, 'b', 1);
-
-    }
+  }
 }
 </script>
 

@@ -123,20 +123,20 @@ Component.registerHooks([
 
 @Component
 export default class TestCompComment extends Vue {
-  id: string = '';
+  private id: string = '';
   private mom = moment;
-  @hackerNews.State readonly itemData!: detailItem;
-  @hackerNews.Action readonly getDetailItem: any;
+  @hackerNews.State private readonly itemData!: detailItem;
+  @hackerNews.Action private readonly getDetailItem: any;
 
-  created(){
+  private created() {
     this.id = this.$route.query.id as string;
-    //this.getDetailItem({id:this.id});
+    // this.getDetailItem({id:this.id});
   }
 
-  beforeRouteEnter(to:Route, from:Route, next:any){
+  private beforeRouteEnter(to: Route, from: Route, next: any) {
     const id = to.query.id as string;
-    console.log(id);
-    next((vm:TestCompComment) => {
+    window.console.log(id);
+    next((vm: TestCompComment) => {
       vm.getDetailItem({id});
     });
   }

@@ -160,7 +160,7 @@
     &lt;template slot="header" slot-scope="slotProps"&gt;
       &lt;h1&gt;모달 제목&lt;/h1&gt;
       &lt;button @click="slotProps.close"&gt;닫기&lt;/button&gt;
-      {{ slotProps }} &lt;!-- { hello: 'hello' } --&gt;
+      &#123;&#123; slotProps &#125;&#125; &lt;!-- { hello: 'hello' } --&gt;
     &lt;/template&gt;
     &lt;p slot="content"&gt;모달의 컨텐츠입니다.&lt;/p&gt;
   &lt;/BaseModal&gt;
@@ -216,7 +216,7 @@
       &lt;template #header="slotProps"&gt; &lt;!-- #으로 단축해서 사용 --&gt;
         &lt;h1&gt;모달 제목&lt;/h1&gt;
         &lt;button @click="slotProps.close"&gt;닫기&lt;/button&gt;
-        {{ slotProps }} &lt;!-- { hello: 'hello' } --&gt;
+        &#123;&#123; slotProps &#125;&#125; &lt;!-- { hello: 'hello' } --&gt;
       &lt;/template&gt;
       &lt;template #[slotName]&gt; &lt;!-- 동적인 슬롯명 사용 --&gt;
         &lt;p&gt;모달의 컨텐츠입니다.&lt;/p&gt;
@@ -263,7 +263,8 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class Slot1 extends Vue {
-  private a = {};
+  private slotProps: string = '{{ slotProps }}';
+  private a: any = {};
 
   private mounted() {
       window.prettyPrint();

@@ -58,10 +58,18 @@ export default class gnb extends VuexModule {
             },
             {
               depth: 2,
-              id: '0_1_2',
+              id: '0_1_1',
               name: 'vmodel',
               iconNm: 'fab fa-vuejs',
               link: '/vue/understand/component/vmodel',
+              sub: null,
+            },
+            {
+              depth: 2,
+              id: '0_1_2',
+              name: 'mixin',
+              iconNm: 'fab fa-vuejs',
+              link: '/vue/understand/mixin',
               sub: null,
             }
           ]

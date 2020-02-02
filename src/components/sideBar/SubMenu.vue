@@ -39,16 +39,19 @@ export default class SubMenu extends Vue {
       if ( parent.className === 'open' ) {
         parent.className = '';
         ulElem.className += ' nav-hide';
-        ulElem.style.display = 'none';
+        //ulElem.style.display = 'none';
         ulElem.style.height = '0';
+        ulElem.style.maxHeight = '0';
       } else {
         parent.className = 'open';
         ulElem.className += ' nav-show';
         ulElem.style.display = 'block';
         ulElem.style.height = 'auto';
+        ulElem.style.maxHeight = '500px';
       }
-      ulElem.style.transitionProperty = 'height';
-      ulElem.style.transitionDuration = '0.35s';
+      ulElem.style.transitionProperty = 'max-height';
+      ulElem.style.transitionDuration = '1s';
+      ulElem.style.transitionTimingFunction = 'ease-in';
 
     }
 

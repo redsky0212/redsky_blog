@@ -23,7 +23,7 @@
             <div class="widget-box">
               <div class="widget-header widget-header-flat">
                 <h4 class="smaller">
-                  기본 방법
+                  기본 방법(기본적으로 부모의 inner html은 자식 컴포넌트의 slot으로 들어간다. )
                 </h4>
               </div>
 
@@ -64,7 +64,7 @@
             <div class="widget-box">
               <div class="widget-header widget-header-flat">
                 <h4 class="smaller">
-                  named-slot (slot의 name을 정해주고 해당 위치의 name에 element를 뿌려주는 기능)
+                  named-slot (자식 컴포넌트의 slot에 name을 정해주고 부모에서 그 name으로 태그를 넣어주는 방법)
                 </h4>
               </div>
 
@@ -76,8 +76,8 @@
                         <li>
                           <b>부모 컴포넌트</b>
                           <pre class="prettyprint linenums">&lt;div&gt;
-  &lt;BaseModal&gt;
-    &lt;template slot="header"&gt;
+  &lt;BaseModal&gt; &lt;!-- 자식 컴포넌트 호출 --&gt;
+    &lt;template slot="header"&gt;  &lt;!-- template 태그는 현재태그를 화면에 보이고싶지 않을때 사용 --&gt;
       &lt;h1&gt;모달 제목&lt;/h1&gt;
       &lt;button&gt;닫기&lt;/button&gt;
     &lt;/template&gt;

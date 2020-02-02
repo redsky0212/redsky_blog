@@ -31,6 +31,11 @@ const routes = [
     component: () => import('../views/vue/understand/component/UseVmodel.vue'),
   },
   {
+    path: '/vue/understand/mixin',
+    name: 'vue-mixin',
+    component: () => import('../views/vue/understand/mixin/Mixin1.vue'),
+  },
+  {
     path: '/vue/vuex/typescript/makeStore',
     name: 'ts-makeStore',
     component: () => import('../views/vue/vuex/typescript/ts-makeStore.vue'),

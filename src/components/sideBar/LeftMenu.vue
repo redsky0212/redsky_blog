@@ -37,12 +37,12 @@ const gnb = namespace('gnb');
 })
 export default class LeftMenu extends Vue {
   // ts내에서 쓰기위한 data 선언
-  @gnb.Getter readonly getGnbList!: GnbInfo[];
-  @gnb.State readonly gnbList!: GnbInfo[];
+  @gnb.Getter public readonly getGnbList!: GnbInfo[];
+  @gnb.State public readonly gnbList!: GnbInfo[];
 
   private gnbData: GnbInfo[] = this.$store.state.gnb.gnbList;
 
-  private mounted(){
+  private mounted() {
     console.log(this.getGnbList);
   }
 }

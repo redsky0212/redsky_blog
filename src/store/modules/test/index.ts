@@ -19,4 +19,4 @@ export const hackerNews: Module<hackerNewsState, RootState> = {
   getters,
   mutations,
   actions,
-}
+};

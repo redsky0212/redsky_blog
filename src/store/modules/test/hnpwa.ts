@@ -1,4 +1,4 @@
-import { Module } from "vuex";
+import { Module } from 'vuex';
 import { RootState } from '@/store/types';
 import AxiosService from '@/service/axios.service';
 import { AxiosResponse } from 'axios';
@@ -6,7 +6,7 @@ import { FeedItem } from '@/store/types';
 
 interface hnpwa {
   newsData: FeedItem[] | null;
-};
+}
 
 const module: Module<hnpwa, RootState> = {
   namespaced: true,
@@ -14,23 +14,23 @@ const module: Module<hnpwa, RootState> = {
     newsData: null,
   },
   mutations: {
-    newsList(state, data: FeedItem[]):void{
+    newsList(state, data: FeedItem[]): void {
       state.newsData = data;
-    }
+    },
   },
   actions: {
-    async getNews({commit}){
-      const newsData:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
+    async getNews({commit}) {
+      const newsData: AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
       commit('newsList', newsData.data);
     },
-    async getNewsPaging({commit}){
-      const newsData:AxiosResponse<FeedItem[]> = await AxiosService.instance.post('/news.json/1.json');
+    async getNewsPaging({commit}) {
+      const newsData: AxiosResponse<FeedItem[]> = await AxiosService.instance.post('/news.json/1.json');
       commit('newsList', newsData.data);
-    }
+    },
   },
   getters: {
   },
-}
+};
 
 export default module;
 
@@ -57,7 +57,7 @@ export default module;
 //   // action ------------------------------
 //   @Action
 //   getNews(){
-   
+
 //     // const newsData_action:AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
 //     AxiosService.instance.get('/news/1.json')
 //     .then((response:AxiosResponse<FeedItem[]>)=>{
@@ -66,6 +66,6 @@ export default module;
 //     .catch((error:AxiosError)=>{
 //       console.error(error);
 //     });
-    
+
 //   }
 // }

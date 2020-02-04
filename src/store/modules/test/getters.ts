@@ -5,5 +5,5 @@ export const getters: GetterTree<hackerNewsState, RootState> = {
   getNewsData(state): FeedItem[] | null {
     const data: FeedItem[] | null = state.newsData;
     return data;
-  }
+  },
 };

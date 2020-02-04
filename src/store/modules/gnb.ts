@@ -2,12 +2,12 @@ import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import {GnbInfo} from '../types';
 
 @Module({
-  namespaced:true, 
+  namespaced: true,
   name: 'gnb',
 })
 export default class gnb extends VuexModule {
   // state ---------------------------------------
-  gnbList: GnbInfo[] = [
+  public gnbList: GnbInfo[] = [
     {
       depth: 0,
       id: '0',
@@ -71,8 +71,8 @@ export default class gnb extends VuexModule {
               iconNm: 'fab fa-vuejs',
               link: '/vue/understand/mixin',
               sub: null,
-            }
-          ]
+            },
+          ],
         },
         {
           depth: 1,
@@ -94,7 +94,7 @@ export default class gnb extends VuexModule {
                   name: 'store만들기',
                   iconNm: 'fab fa-vuejs',
                   link: '/vue/vuex/typescript/makeStore',
-                  sub: null
+                  sub: null,
                 },
                 {
                   depth: 3,
@@ -102,11 +102,11 @@ export default class gnb extends VuexModule {
                   name: 'modules,store분리',
                   iconNm: 'fab fa-vuejs',
                   link: '/vue/vuex/typescript/moduleStore',
-                  sub: null
-                }
-              ]
-            }
-          ]
+                  sub: null,
+                },
+              ],
+            },
+          ],
         },
         {
           depth: 1,
@@ -114,7 +114,15 @@ export default class gnb extends VuexModule {
           name: 'vue.js 잡다구리',
           iconNm: 'fab fa-vuejs',
           link: '/vue/etc',
-          sub: null
+          sub: null,
+        },
+        {
+          depth: 1,
+          id: '0_4',
+          name: 'vue.js test code',
+          iconNm: 'fab fa-vuejs',
+          link: '/vue/testCode',
+          sub: null,
         },
       ],
     },
@@ -163,18 +171,18 @@ export default class gnb extends VuexModule {
 
   // mutations -----------------------------------
   @Mutation
-  setGnbList(data: GnbInfo[]){
+  public setGnbList(data: GnbInfo[]) {
     this.gnbList = data;
   }
 
   // actions -------------------------------------
   @Action
-  setGnbData(data: GnbInfo[]){
+  public setGnbData(data: GnbInfo[]) {
     this.context.commit('setGnbList', data);
   }
 
   // getters -------------------------------------
-  get getGnbList(){
+  get getGnbList() {
     return this.gnbList;
   }
 }

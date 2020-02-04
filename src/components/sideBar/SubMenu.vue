@@ -25,7 +25,7 @@ import {Vue, Component, Prop} from 'vue-property-decorator';
 import { GnbInfo } from '../../store/types';
 
 
-@Component({name:'sub-menu'})
+@Component({name: 'sub-menu'})
 export default class SubMenu extends Vue {
   @Prop() private subData!: GnbInfo[];
 
@@ -34,12 +34,12 @@ export default class SubMenu extends Vue {
     const target: HTMLElement = event.currentTarget as HTMLElement;
     const parent: HTMLElement = target.parentElement as HTMLElement;
     const ulElem: HTMLElement = parent.querySelector('ul.submenu') as HTMLElement;
-   
+
     if ( parent.nodeName === 'LI' && ulElem ) {
       if ( parent.className === 'open' ) {
         parent.className = '';
         ulElem.className += ' nav-hide';
-        //ulElem.style.display = 'none';
+        // ulElem.style.display = 'none';
         ulElem.style.height = '0';
         ulElem.style.maxHeight = '0';
       } else {

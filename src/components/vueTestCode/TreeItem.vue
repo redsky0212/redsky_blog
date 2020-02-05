@@ -4,7 +4,15 @@
             :class="{bold: isFolder}"
         >
             <div class="tree_container">
-                <input type="checkbox" :id="'enhancedCheck' + item.value" name="" :value="item.value" @change="onInput" />
+                <input 
+                    type="checkbox" 
+                    :id="'enhancedCheck' + item.value" 
+                    :name="name" 
+                    :value="item.value"
+                    :checked="item.checked" 
+                    @click="item.checked = !item.checked"
+                    @change="onInput($event, item, item.checked, allData)" 
+                />
                 <label :for="'enhancedCheck' + item.value">
                     {{ item.name }}
                     <span 
@@ -25,7 +33,10 @@
                 class="item"
                 v-for="(child, index) in item.children"
                 :key="index"
+                :allData="allData"
                 :item="child"
+                :depth="depth + 1"
+                :name="item.value + '_child'"
                 v-model="child.checked"
             />
         </ul>
@@ -41,7 +52,10 @@ import {State, Getter, namespace} from 'vuex-class';
 })
 export default class TreeItem extends Vue {
     @Model('change', {type: Boolean}) readonly checked!: boolean;
+    @Prop() allData: any;
     @Prop() item: any;
+    @Prop() depth!: number;
+    @Prop() name!: string;
 
     // data
     private isOpen: boolean = false;
@@ -50,6 +64,7 @@ export default class TreeItem extends Vue {
     private get isFolder() {
         return this.item.children && this.item.children.length;
     }
+
 
     // method
     toggle() {
@@ -61,11 +76,72 @@ export default class TreeItem extends Vue {
         window.alert('약관열기');
     }
 
-    onInput(event:Event) {
-        const target: HTMLInputElement = event.target as HTMLInputElement;
-        this.$emit('change', target.checked);
+    onInput(event: Event, obj: any, ckd:boolean, allData: any) {
+        if (obj.children) {
+            for (let child of obj.children) {
+                if ( child.children ) {
+                    for ( let child2 of child.children ) {
+                        child2.checked = ckd;
+                    }
+                }
+                child.checked = ckd;
+            }
+        }
+
+        const target = (event.target as HTMLInputElement);
+        window.console.log(target.getAttribute('name'));
+        const name = target.getAttribute('name');
+        const len = document.querySelectorAll('input[name="'+name+'"]').length;
+        const checkLen = document.querySelectorAll('input[name="'+name+'"]:checked').length;
+        if (name) {
+            const parentVal = name.split('_child')[0];
+            if ( len === checkLen ) {
+                //(document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = true;
+               // this.$emit('change', true);
+               window.console.log('all');
+               this.findVal(allData, parentVal, true);
+            } else {
+                //(document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = false;
+                //this.$emit('change', false);
+                 window.console.log('not all');
+                 this.findVal(allData, parentVal, false);
+            }
+        }
+
+
+        // const target: HTMLInputElement = event.target as HTMLInputElement;
+        // this.$emit('change', target.checked);
+
+        // window.console.log(target.getAttribute('name'));
+        // const name = target.getAttribute('name');
+        // const len = document.querySelectorAll('input[name="'+name+'"]').length;
+        // const checkLen = document.querySelectorAll('input[name="'+name+'"]:checked').length;
+        // if (name) {
+        //     const parentVal = name.split('_child')[0];
+        //     if ( len === checkLen ) {
+        //         //(document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = true;
+        //         ckd = true;
+        //     } else {
+        //         //(document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = false;
+        //         ckd = false;
+        //     }
+        // }
     }
    
+    findVal(allData: any, val: string, chk: boolean) {
+        const d = allData;
+
+        d.forEach((element: any) => {
+            if ( element.value === val ) {
+                element.checked = chk;
+                return false;
+            } else {
+                if (element.children && element.children.length) {
+                    this.findVal(element.children, val, chk);
+                }
+            }
+        });
+    }
    
 }
 </script>

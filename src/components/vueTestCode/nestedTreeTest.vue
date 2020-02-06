@@ -3,7 +3,7 @@
         <ul id="demo">
             <tree-comp
                 class="item"
-                :item="treeData"
+                :item="newData"
             />
         </ul>
     </div>
@@ -48,6 +48,213 @@ export default class NestedTreeTest extends Vue {
             ]
         }
     ];
+
+    private org: any = {
+        '1': {
+            'title': '첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+        },
+        '1.1': {
+            'title': 'depth2 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+        },
+        '1.1.1': {
+            'title': 'depth3 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c.html',
+        },
+        '3-5': {
+            'title': '이것저것 약관 신청 필수',
+        },
+        '3': {
+            'title': 'depth2 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+        },
+        '3.1': {
+            'title': 'depth3 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+        },
+        '3.1.1': {
+            'title': 'depth4 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '3.1.2': {
+            'title': 'depth4의 두번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '3.1.3': {
+            'title': 'depth4의 세번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '3.2': {
+            'title': 'depth3의 두번째 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '3.2.1': {
+            'title': 'depth4의 첫번째의 첫번째것 타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '3.2.2': {
+            'title': 'depth4의 두번째의 두번째껏 타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '5': {
+            'title': 'depth2 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '5.1': {
+            'title': 'depth3의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '5.2': {
+            'title': 'depth3의 두번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '5.2.1': {
+            'title': 'depth4의 두번째의 첫번째 타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '2': {
+            'title': 'depth1의 새로운 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '2.1': {
+            'title': 'depth2의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '2.2': {
+            'title': 'depth2의 두번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '2.2.1': {
+            'title': 'depth3의 두번째의 첫번째꺼 타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '2.3': {
+            'title': 'depth2의 세번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '4': {
+            'title': 'depth1의 새로운 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        '4.1': {
+            'title': 'depth2의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'study': {
+            'title': 'depth1의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'study.1': {
+            'title': 'depth2의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'study.1.1': {
+            'title': 'depth3의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'study.1.2': {
+            'title': 'depth3의 두번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'study.2': {
+            'title': 'depth2의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'abc1': {
+            'title': 'depth1의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'abc1.1': {
+            'title': 'depth2의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+        'abc1.2': {
+            'title': 'depth2의 첫번째타이틀 첫번째 내용',
+            'caption': 'sub 내용 어쩌고 저쩌고...',
+            'url': '../a/b/c/d.html',
+        },
+    };
+
+    private newData: any[] = [];
+    private created() {
+        
+        let tempArr: any[] = [];
+
+        for (const item in this.org) {
+
+            const itemObj = this.org[item];
+
+            // depth1 구하기
+            if (!/\./g.test(item)) {
+                this.setArrItem(tempArr, itemObj, item);    
+            }
+            // depth2 구하기
+            const depthTemp = item.split('.');
+            if (depthTemp.length === 2) {
+                this.createArr(tempArr, depthTemp, itemObj, item);
+            } else if (depthTemp.length === 3) {
+                tempArr.filter((depth1Item) => {
+                    if (depth1Item.value === depthTemp[0]) {
+                        depth1Item.children.filter((depth2Item: any) => {
+                            if (depth2Item.value === depthTemp[0] + '.' + depthTemp[1]){
+                                this.setArrItem(depth2Item.children, itemObj, item);
+                            }
+                        });
+                    }
+                });
+                
+            }
+        }
+        this.newData = tempArr;
+
+        window.console.log(tempArr);
+
+        
+    }
+
+    private createArr(arr: any, depthTemp: string[], itemObj: any, item: string) {
+        arr.filter((depth1Item: any) => {
+            if (depth1Item.value === depthTemp[0]){
+                this.setArrItem(depth1Item.children, itemObj, item);
+            }
+        });
+    }
+
+    private setArrItem(arr: any, obj: any, value: string) {
+        Vue.set(arr, arr.length, {
+            name: obj.title + value,
+            caption: obj.caption,
+            value: value,
+            checked: false,
+            children: [],
+        });
+    }
 
     
 }

@@ -63,6 +63,9 @@ export default class NestedTreeTest extends Vue {
             'caption': 'sub 내용 어쩌고 저쩌고...',
             'url': '../a/b/c.html',
         },
+        '1-2': {
+            'title': '1, 2 테스트 이것저것 약관 신청 필수',
+        },
         '3-5': {
             'title': '이것저것 약관 신청 필수',
         },
@@ -231,9 +234,45 @@ export default class NestedTreeTest extends Vue {
                 
             }
         }
-        this.newData = tempArr;
 
-        window.console.log(tempArr);
+
+        // 만들어진 트리형태의 데이터에서 '-'가 있는 경우를 체크하고 해당 노드를 빼고 자식으로 전환하는 로직
+        let depth2Item: any[] = [];
+        tempArr.forEach((item, index) => {
+            if ( /\-/g.test(item.value) ) {
+                depth2Item = depth2Item.concat(item.value.split('-'));
+            }
+        });
+      
+        let lastArr: any[] = [];
+        let depth2Obj: any = {};
+        tempArr.forEach((item, index) => {
+            const key = depth2Item.find(elem => (elem === item.value));
+            if (key) {
+                Vue.set(depth2Obj, key, item);
+            } else {
+                lastArr = lastArr.concat(item);
+            }
+        });
+        lastArr.forEach((item, index) => {
+            if ( /\-/g.test(item.value) ) {
+                const arr = item.value.split('-');
+                for (const el of arr) {
+                    if (depth2Obj[el]) {
+                        Vue.set(item.children, item.children.length, depth2Obj[el]);
+                    }
+                }
+            }
+        });
+
+        // const idx = tempArr.findIndex((item) => {
+        //     return /\-/g.test(item.value);
+        // });
+        window.console.log(depth2Obj);
+        window.console.log(lastArr);
+
+        this.newData = lastArr;
+
 
         
     }

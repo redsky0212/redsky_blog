@@ -48,14 +48,14 @@ import {Vue, Component, Prop, Model} from 'vue-property-decorator';
 import {State, Getter, namespace} from 'vuex-class';
 
 @Component({
-  name: 'tree-item'
+  name: 'tree-item',
 })
 export default class TreeItem extends Vue {
-    @Model('change', {type: Boolean}) readonly checked!: boolean;
-    @Prop() allData: any;
-    @Prop() item: any;
-    @Prop() depth!: number;
-    @Prop() name!: string;
+    @Model('change', {type: Boolean}) public readonly checked!: boolean;
+    @Prop() public allData: any;
+    @Prop() public item: any;
+    @Prop() public depth!: number;
+    @Prop() public name!: string;
 
     // data
     private isOpen: boolean = false;
@@ -67,20 +67,20 @@ export default class TreeItem extends Vue {
 
 
     // method
-    toggle() {
+    private toggle() {
         if (this.isFolder) {
             this.isOpen = !this.isOpen;
         }
     }
-    openTerm () {
+    private openTerm() {
         window.alert('약관열기');
     }
 
-    onInput(event: Event, obj: any, ckd:boolean, allData: any) {
+    private onInput(event: Event, obj: any, ckd: boolean, allData: any) {
         if (obj.children) {
-            for (let child of obj.children) {
+            for (const child of obj.children) {
                 if ( child.children ) {
-                    for ( let child2 of child.children ) {
+                    for ( const child2 of child.children ) {
                         child2.checked = ckd;
                     }
                 }
@@ -91,18 +91,18 @@ export default class TreeItem extends Vue {
         const target = (event.target as HTMLInputElement);
         window.console.log(target.getAttribute('name'));
         const name = target.getAttribute('name');
-        const len = document.querySelectorAll('input[name="'+name+'"]').length;
-        const checkLen = document.querySelectorAll('input[name="'+name+'"]:checked').length;
+        const len = document.querySelectorAll('input[name="' + name + '"]').length;
+        const checkLen = document.querySelectorAll('input[name="' + name + '"]:checked').length;
         if (name) {
             const parentVal = name.split('_child')[0];
             if ( len === checkLen ) {
-                //(document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = true;
+                // (document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = true;
                // this.$emit('change', true);
                window.console.log('all');
                this.findVal(allData, parentVal, true);
             } else {
-                //(document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = false;
-                //this.$emit('change', false);
+                // (document.querySelector('input[value="'+(parentVal)+'"]') as HTMLInputElement).checked = false;
+                // this.$emit('change', false);
                  window.console.log('not all');
                  this.findVal(allData, parentVal, false);
             }
@@ -127,8 +127,7 @@ export default class TreeItem extends Vue {
         //     }
         // }
     }
-   
-    findVal(allData: any, val: string, chk: boolean) {
+    private findVal(allData: any, val: string, chk: boolean) {
         const d = allData;
 
         d.forEach((element: any) => {
@@ -142,7 +141,6 @@ export default class TreeItem extends Vue {
             }
         });
     }
-   
 }
 </script>
 

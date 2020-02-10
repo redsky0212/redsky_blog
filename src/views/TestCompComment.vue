@@ -111,7 +111,7 @@ import { State, namespace, Action, Getter } from 'vuex-class';
 
 import moment, { Moment } from 'moment';
 import 'moment/locale/ko';
-import { detailItem } from '../store/types';
+import { DetailItem } from '../store/types';
 
 const hackerNews = namespace('hackerNews');
 
@@ -125,7 +125,7 @@ Component.registerHooks([
 export default class TestCompComment extends Vue {
   private id: string = '';
   private mom = moment;
-  @hackerNews.State private readonly itemData!: detailItem;
+  @hackerNews.State private readonly itemData!: DetailItem;
   @hackerNews.Action private readonly getDetailItem: any;
 
   private created() {

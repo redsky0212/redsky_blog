@@ -1,9 +1,9 @@
 import { ActionTree } from 'vuex';
-import { hackerNewsState, RootState, FeedItem } from '@/store/types';
+import { HackerNewsState, RootState, FeedItem } from '@/store/types';
 import { AxiosResponse } from 'axios';
 import AxiosService from '@/service/axios.service';
 
-export const actions: ActionTree<hackerNewsState, RootState> = {
+export const actions: ActionTree<HackerNewsState, RootState> = {
   async fetchNews({commit}) {
     const newsData: AxiosResponse<FeedItem[]> = await AxiosService.instance.get('/news/1.json');
     commit('newsList', newsData.data);

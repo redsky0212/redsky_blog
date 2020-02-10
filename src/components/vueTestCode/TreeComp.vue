@@ -37,7 +37,7 @@ import TreeItem from '@/components/vueTestCode/TreeItem.vue';
   },
 })
 export default class TreeComp extends Vue {
-    @Prop() item: any;
+    @Prop() public item: any;
 
     private arr: string[] = [];
     private isOpen: boolean = false;
@@ -54,17 +54,17 @@ export default class TreeComp extends Vue {
         return this.item && this.item.length;
     }
 
-    openTerm () {
+    private openTerm() {
         window.alert('약관열기');
     }
 
-    toggle() {
+    private toggle() {
         if (this.isFolder) {
             this.isOpen = !this.isOpen;
         }
     }
     private onChange(event: Event) {
-
+        // const a = '';
     }
 }
 </script>

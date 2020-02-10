@@ -206,16 +206,14 @@ export default class NestedTreeTest extends Vue {
 
     private newData: any[] = [];
     private created() {
-        
         let tempArr: any[] = [];
 
         for (const item in this.org) {
-
             const itemObj = this.org[item];
 
             // depth1 구하기
             if (!/\./g.test(item)) {
-                this.setArrItem(tempArr, itemObj, item);    
+                this.setArrItem(tempArr, itemObj, item);
             }
             // depth2 구하기
             const depthTemp = item.split('.');
@@ -225,13 +223,12 @@ export default class NestedTreeTest extends Vue {
                 tempArr.filter((depth1Item) => {
                     if (depth1Item.value === depthTemp[0]) {
                         depth1Item.children.filter((depth2Item: any) => {
-                            if (depth2Item.value === depthTemp[0] + '.' + depthTemp[1]){
+                            if (depth2Item.value === depthTemp[0] + '.' + depthTemp[1]) {
                                 this.setArrItem(depth2Item.children, itemObj, item);
                             }
                         });
                     }
                 });
-                
             }
         }
 
@@ -243,11 +240,10 @@ export default class NestedTreeTest extends Vue {
                 depth2Item = depth2Item.concat(item.value.split('-'));
             }
         });
-      
         let lastArr: any[] = [];
-        let depth2Obj: any = {};
+        const depth2Obj: any = {};
         tempArr.forEach((item, index) => {
-            const key = depth2Item.find(elem => (elem === item.value));
+            const key = depth2Item.find((elem) => (elem === item.value));
             if (key) {
                 Vue.set(depth2Obj, key, item);
             } else {
@@ -272,14 +268,11 @@ export default class NestedTreeTest extends Vue {
         window.console.log(lastArr);
 
         this.newData = lastArr;
-
-
-        
     }
 
     private createArr(arr: any, depthTemp: string[], itemObj: any, item: string) {
         arr.filter((depth1Item: any) => {
-            if (depth1Item.value === depthTemp[0]){
+            if (depth1Item.value === depthTemp[0]) {
                 this.setArrItem(depth1Item.children, itemObj, item);
             }
         });
@@ -289,13 +282,11 @@ export default class NestedTreeTest extends Vue {
         Vue.set(arr, arr.length, {
             name: obj.title + value,
             caption: obj.caption,
-            value: value,
+            value,
             checked: false,
             children: [],
         });
     }
-
-    
 }
 </script>
 

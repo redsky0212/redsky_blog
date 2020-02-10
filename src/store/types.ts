@@ -26,7 +26,7 @@ export interface FeedItem {
   url?: string;
   domain?: string;
 }
-export interface detailItem {
+export interface DetailItem {
   id: number;
   title: string;
   points: number | null;
@@ -39,12 +39,12 @@ export interface detailItem {
   type: string;
   url?: string;
   domain?: string;
-  comments: detailItem[]; // Comments are items too
+  comments: DetailItem[]; // Comments are items too
   level: number;
   comments_count: number;
 }
-export interface hackerNewsState {
+export interface HackerNewsState {
   newsData: FeedItem[] | null;
   askData: FeedItem[] | null;
-  itemData: detailItem | null;
+  itemData: DetailItem | null;
 }

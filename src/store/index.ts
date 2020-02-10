@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
 import { RootState } from './types';
 import gnb from '@/store/modules/gnb.ts';
-// import hnpwa from '@/store/modules/test/hnpwa.ts';
+// import Hnpwa from '@/store/modules/test/Hnpwa.ts';
 import { hackerNews } from '@/store/modules/test';
 
 Vue.use(Vuex);

@@ -4,11 +4,11 @@ import AxiosService from '@/service/axios.service';
 import { AxiosResponse } from 'axios';
 import { FeedItem } from '@/store/types';
 
-interface hnpwa {
+interface Hnpwa {
   newsData: FeedItem[] | null;
 }
 
-const module: Module<hnpwa, RootState> = {
+const module: Module<Hnpwa, RootState> = {
   namespaced: true,
   state: {
     newsData: null,
@@ -42,9 +42,9 @@ export default module;
 
 // @Module({
 //   namespaced: true,
-//   name:'hnpwa',
+//   name:'Hnpwa',
 // })
-// export default class hnpwa extends VuexModule {
+// export default class Hnpwa extends VuexModule {
 //   // state ---------------------------------
 //   newsData!: FeedItem[];
 

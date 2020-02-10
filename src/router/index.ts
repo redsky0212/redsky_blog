@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Main from '../views/Main.vue';
+import vueUnderstand from './vueUnderstand';
 
 Vue.use(VueRouter);
 
@@ -20,21 +21,7 @@ const routes = [
     name: 'vuePreferences',
     component: () => import('../views/vue/VuePreferences.vue'),
   },
-  {
-    path: '/vue/understand/slot',
-    name: 'vue-slot',
-    component: () => import('../views/vue/understand/slot/Slot1.vue'),
-  },
-  {
-    path: '/vue/understand/component/vmodel',
-    name: 'componentVModel',
-    component: () => import('../views/vue/understand/component/UseVmodel.vue'),
-  },
-  {
-    path: '/vue/understand/mixin',
-    name: 'vue-mixin',
-    component: () => import('../views/vue/understand/mixin/Mixin1.vue'),
-  },
+  ...vueUnderstand,
   {
     path: '/vue/vuex/typescript/makeStore',
     name: 'ts-makeStore',

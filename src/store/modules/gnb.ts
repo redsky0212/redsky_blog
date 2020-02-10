@@ -5,7 +5,7 @@ import {GnbInfo} from '../types';
   namespaced: true,
   name: 'gnb',
 })
-export default class gnb extends VuexModule {
+export default class Gnb extends VuexModule {
   // state ---------------------------------------
   public gnbList: GnbInfo[] = [
     {
@@ -70,6 +70,14 @@ export default class gnb extends VuexModule {
               name: 'mixin',
               iconNm: 'fab fa-vuejs',
               link: '/vue/understand/mixin',
+              sub: null,
+            },
+            {
+              depth: 2,
+              id: '0_1_3',
+              name: 'custom directive',
+              iconNm: 'fab fa-vuejs',
+              link: '/vue/understand/customDirective',
               sub: null,
             },
           ],

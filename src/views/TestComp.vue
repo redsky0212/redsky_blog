@@ -94,7 +94,7 @@ export default class TestComp extends Vue {
   }
 
   private created() {
-    // this.$store.dispatch('hnpwa/getNews');
+    // this.$store.dispatch('Hnpwa/getNews');
     this.fetchNews();
     this.fetchAsk();
 

@@ -405,9 +405,9 @@ import { Vue, Component } from 'vue-property-decorator';
         focus: {
             inserted: (el) => {
                 el.focus();
-            }
-        }
-    }
+            },
+        },
+    },
 })
 export default class CustomDirective extends Vue {
   // private slotProps: string = '{{ slotProps }}';

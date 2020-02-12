@@ -24,191 +24,191 @@ export default class NestedTreeTest extends Vue {
     // demo data
     // 여기서 root부분에 객체로 감싸서 전체선택과 같은 루트노드를 하나 만든다. 여기서는 'all'
     private treeData = [
-        { name: 'hello', value:'1-1', checked: false, },
-        { name: 'wat', value: '1-2', checked: false, },
+        { name: 'hello', value: '1-1', checked: false },
+        { name: 'wat', value: '1-2', checked: false },
         {
             name: 'child folder', value: '1-3', checked: false,
             children: [
                 {
                     name: 'child folder', value: '1-3-1', checked: false,
                     children: [
-                        { name: 'hello', value: '1-3-1-1', checked: false, },
-                        { name: 'wat', value: '1-3-1-2', checked: false, }
-                    ]
+                        { name: 'hello', value: '1-3-1-1', checked: false },
+                        { name: 'wat', value: '1-3-1-2', checked: false },
+                    ],
                 },
-                { name: 'hello', value: '1-3-2', checked: false, },
-                { name: 'wat', value: '1-3-3', checked: false, },
+                { name: 'hello', value: '1-3-2', checked: false },
+                { name: 'wat', value: '1-3-3', checked: false },
                 {
                     name: 'child folder', value: '1-3-4', checked: false,
                     children: [
-                        { name: 'hello', value: '1-3-4-1', checked: false, },
-                        { name: 'wat', value: '1-3-4-2', checked: false, }
-                    ]
-                }
-            ]
-        }
+                        { name: 'hello', value: '1-3-4-1', checked: false },
+                        { name: 'wat', value: '1-3-4-2', checked: false },
+                    ],
+                },
+            ],
+        },
     ];
 
     private org: any = {
         '1': {
-            'title': '첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
+            title: '첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
         },
         '1.1': {
-            'title': 'depth2 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
+            title: 'depth2 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
         },
         '1.1.1': {
-            'title': 'depth3 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c.html',
+            title: 'depth3 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c.html',
         },
         '1-2': {
-            'title': '1, 2 테스트 이것저것 약관 신청 필수',
+            title: '1, 2 테스트 이것저것 약관 신청 필수',
         },
         '3-5': {
-            'title': '이것저것 약관 신청 필수',
+            title: '이것저것 약관 신청 필수',
         },
         '3': {
-            'title': 'depth2 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
+            title: 'depth2 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
         },
         '3.1': {
-            'title': 'depth3 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
+            title: 'depth3 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
         },
         '3.1.1': {
-            'title': 'depth4 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth4 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '3.1.2': {
-            'title': 'depth4의 두번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth4의 두번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '3.1.3': {
-            'title': 'depth4의 세번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth4의 세번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '3.2': {
-            'title': 'depth3의 두번째 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth3의 두번째 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '3.2.1': {
-            'title': 'depth4의 첫번째의 첫번째것 타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth4의 첫번째의 첫번째것 타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '3.2.2': {
-            'title': 'depth4의 두번째의 두번째껏 타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth4의 두번째의 두번째껏 타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '5': {
-            'title': 'depth2 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '5.1': {
-            'title': 'depth3의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth3의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '5.2': {
-            'title': 'depth3의 두번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth3의 두번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '5.2.1': {
-            'title': 'depth4의 두번째의 첫번째 타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth4의 두번째의 첫번째 타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '2': {
-            'title': 'depth1의 새로운 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth1의 새로운 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '2.1': {
-            'title': 'depth2의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '2.2': {
-            'title': 'depth2의 두번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 두번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '2.2.1': {
-            'title': 'depth3의 두번째의 첫번째꺼 타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth3의 두번째의 첫번째꺼 타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '2.3': {
-            'title': 'depth2의 세번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 세번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '4': {
-            'title': 'depth1의 새로운 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth1의 새로운 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         '4.1': {
-            'title': 'depth2의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'study': {
-            'title': 'depth1의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth1의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'study.1': {
-            'title': 'depth2의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'study.1.1': {
-            'title': 'depth3의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth3의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'study.1.2': {
-            'title': 'depth3의 두번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth3의 두번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'study.2': {
-            'title': 'depth2의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'abc1': {
-            'title': 'depth1의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth1의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'abc1.1': {
-            'title': 'depth2의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
         'abc1.2': {
-            'title': 'depth2의 첫번째타이틀 첫번째 내용',
-            'caption': 'sub 내용 어쩌고 저쩌고...',
-            'url': '../a/b/c/d.html',
+            title: 'depth2의 첫번째타이틀 첫번째 내용',
+            caption: 'sub 내용 어쩌고 저쩌고...',
+            url: '../a/b/c/d.html',
         },
     };
 
     private newData: any[] = [];
     private created() {
-        let tempArr: any[] = [];
+        const tempArr: any[] = [];
 
-        for (const item in this.org) {
+        for (const item of this.org) {
             const itemObj = this.org[item];
 
             // depth1 구하기
@@ -222,9 +222,9 @@ export default class NestedTreeTest extends Vue {
             } else if (depthTemp.length === 3) {
                 tempArr.filter((depth1Item) => {
                     if (depth1Item.value === depthTemp[0]) {
-                        depth1Item.children.filter((depth2Item: any) => {
-                            if (depth2Item.value === depthTemp[0] + '.' + depthTemp[1]) {
-                                this.setArrItem(depth2Item.children, itemObj, item);
+                        depth1Item.children.filter((dep2Item: any) => {
+                            if (dep2Item.value === depthTemp[0] + '.' + depthTemp[1]) {
+                                this.setArrItem(dep2Item.children, itemObj, item);
                             }
                         });
                     }

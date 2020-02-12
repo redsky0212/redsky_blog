@@ -43,7 +43,7 @@ export default class LeftMenu extends Vue {
   private gnbData: GnbInfo[] = this.$store.state.gnb.gnbList;
 
   private mounted() {
-    console.log(this.getGnbList);
+    window.console.log(this.getGnbList);
   }
 }
 </script>

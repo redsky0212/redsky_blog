@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Main from '../views/Main.vue';
 import vueUnderstand from './vueUnderstand';
+import typescript from './typescript';
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     component: () => import('../views/vue/vuex/typescript/ts-moduleStore.vue'),
   },
   {
+    path: '/vue/vuex/typescript/vuexClass',
+    name: 'ts-moduleStore',
+    component: () => import('../views/vue/vuex/typescript/ts-vuexClass.vue'),
+  },
+  {
     path: '/vue/etc',
     name: 'vueEtc',
     component: () => import('../views/vue/VueEtc.vue'),
@@ -42,11 +48,7 @@ const routes = [
     name: 'vueTestCode',
     component: () => import('../views/vue/VueTestCode.vue'),
   },
-  {
-    path: '/typescript/studyLink',
-    name: 'typescript link list',
-    component: () => import('../views/typescript/StudyLink.vue'),
-  },
+  ...typescript,
   {
     path: '/test',
     name: 'TestComp',

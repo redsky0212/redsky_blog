@@ -50,6 +50,11 @@ const routes = [
   },
   ...typescript,
   {
+    path: '/javascript/ref/cssSticky',
+    name: 'jsSticky',
+    component: () => import('../views/js/ref/JsCssSticky.vue'),
+  },
+  {
     path: '/test',
     name: 'TestComp',
     component: () => import('../views/TestComp.vue'),

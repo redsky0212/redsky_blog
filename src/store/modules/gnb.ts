@@ -156,7 +156,25 @@ export default class Gnb extends VuexModule {
       name: 'javascript',
       iconNm: 'fab fa-js',
       link: '',
-      sub: null,
+      sub: [
+        {
+          depth: 1,
+          id: '2_0',
+          name: 'js참조예제',
+          iconNm: 'fab fa-js',
+          link: '',
+          sub: [
+            {
+              depth: 2,
+              id: '2_0_0',
+              name: 'css sticky(탑고정)',
+              iconNm: 'fab fa-js',
+              link: '/javascript/ref/cssSticky',
+              sub: null,
+            },
+          ],
+        },
+      ],
     },
     {
       depth: 0,

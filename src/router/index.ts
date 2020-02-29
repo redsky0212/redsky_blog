@@ -55,6 +55,11 @@ const routes = [
     component: () => import('../views/js/ref/JsCssSticky.vue'),
   },
   {
+    path: '/javascript/ref/markdownConvertor',
+    name: 'jsMarkdownConvertor',
+    component: () => import('../views/js/ref/JsMarkdownConvertor.vue'),
+  },
+  {
     path: '/test',
     name: 'TestComp',
     component: () => import('../views/TestComp.vue'),

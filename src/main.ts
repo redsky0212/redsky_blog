@@ -14,12 +14,14 @@ import '@/assets/js/bootstrap.min.js';
 import '@/assets/js/ace-elements.min.js';
 import '@/assets/js/ace.min.js';
 import '@/assets/js/prettify.min.js';
+// import '@/assets/js/remarkable.js';
 
 Vue.config.productionTip = false;
 
 declare global {
   interface Window {
     prettyPrint: any;
+    // Remarkable: any;
   }
 }
 

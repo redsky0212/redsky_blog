@@ -21,11 +21,8 @@ Vue.config.productionTip = false;
 declare global {
   interface Window {
     prettyPrint: any;
-    // Remarkable: any;
   }
 }
-
-
 
 new Vue({
   router,

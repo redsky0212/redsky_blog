@@ -78,12 +78,12 @@ export default class JsMarkdownConvertor extends Vue {
 
     //   return '';
     // };
-    this.md = new Remarkable('full', this.defaults);
+    // this.md = new Remarkable('full', this.defaults);
   }
   private onKeyup(event: Event) {
-    const textarea = event.currentTarget as HTMLTextAreaElement;
-    const htmlStr: string = this.md.render(textarea.value);
-    (document.querySelector('.result-html') as HTMLElement).innerHTML = htmlStr;
+    // const textarea = event.currentTarget as HTMLTextAreaElement;
+    // const htmlStr: string = this.md.render(textarea.value);
+    // (document.querySelector('.result-html') as HTMLElement).innerHTML = htmlStr;
   }
 }
 </script>

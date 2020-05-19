@@ -6,21 +6,30 @@
                 :item="newData"
             />
         </ul>
+        <button @click="onClick">클릭!</button><button @click="onClick2">클릭!</button>
+        <test-input ref="testInput" @event-test="onEventTest" />
+        <test-input ref="testInput_2" />
     </div>
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'vue-property-decorator';
+import {Vue, Component, Ref} from 'vue-property-decorator';
 import {State, Getter, namespace} from 'vuex-class';
 
 import TreeComp from '@/components/vueTestCode/TreeComp.vue';
+import TestInput, {ITestInput} from '@/components/vueTestCode/TestInput.vue';
+
+
 
 @Component({
   components: {
     TreeComp,
+    TestInput,
   },
 })
 export default class NestedTreeTest extends Vue {
+  @Ref('testInput') private testInput!: ITestInput;
+  @Ref('testInput_2') private testInput2!: ITestInput;
     // demo data
     // 여기서 root부분에 객체로 감싸서 전체선택과 같은 루트노드를 하나 만든다. 여기서는 'all'
     private treeData = [
@@ -268,6 +277,16 @@ export default class NestedTreeTest extends Vue {
         window.console.log(lastArr);
 
         this.newData = lastArr;
+    }
+
+    private onEventTest() {
+      this.testInput2.focus();
+    }
+    private onClick() {
+      this.testInput.focus();
+    }
+    private onClick2() {
+      this.testInput2.focus();
     }
 
     private createArr(arr: any, depthTemp: string[], itemObj: any, item: string) {
